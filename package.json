@@ -1,0 +1,33 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "Third JavaScript Hexlet project",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "simple-git-hooks": {
+    "pre-push": "make lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deus-ex-m/hexlet-javascript-common-3rd-project.git"
+  },
+  "keywords": [
+    "hexlet"
+  ],
+  "author": "Artem Terenin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deus-ex-m/hexlet-javascript-common-3rd-project/issues"
+  },
+  "homepage": "https://github.com/deus-ex-m/hexlet-javascript-common-3rd-project#readme",
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "jest": "^29.7.0"
+  }
+}
