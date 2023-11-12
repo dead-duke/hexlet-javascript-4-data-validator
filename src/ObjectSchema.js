@@ -1,5 +1,9 @@
 export default class ObjectSchema {
   isValid(value) {
+    if(!value) {
+      return false;
+    }
+
     const keys = Object.keys(value);
 
     if (keys.length !== Object.keys(this.fields).length) {

@@ -22,7 +22,7 @@ export default class NumberSchema {
   }
 
   positive() {
-    this.options.positive ??= (value) => value == null || value > 0;
+    this.options.positive ??= (value) => value >= 0;
     return this;
   }
 
