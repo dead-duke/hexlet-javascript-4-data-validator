@@ -66,6 +66,9 @@ test('array schema', () => {
 test('object schema', () => {
   const schema = validator.object();
 
+  expect(schema.isValid(null)).toBeTruthy();
+  expect(schema.isValid({})).toBeTruthy();
+
   schema.shape({
     name: validator.string().required(),
     age: validator.number().positive(),

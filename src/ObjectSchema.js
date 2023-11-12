@@ -1,6 +1,10 @@
 export default class ObjectSchema {
   isValid(value) {
-    if(!value) {
+    if (!this.fields) {
+      return true;
+    }
+
+    if (!value) {
       return false;
     }
 
