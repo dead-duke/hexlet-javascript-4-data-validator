@@ -1,4 +1,4 @@
-class NumberSchema {
+export default class NumberSchema {
   constructor(validators) {
     this.validators = validators;
     this.options = {};
@@ -31,5 +31,3 @@ class NumberSchema {
     return this;
   }
 }
-
-export default NumberSchema;

@@ -1,4 +1,4 @@
-class ArraySchema {
+export default class ArraySchema {
   constructor(validators) {
     this.validators = validators;
     this.options = {};
@@ -26,5 +26,3 @@ class ArraySchema {
     return this;
   }
 }
-
-export default ArraySchema;

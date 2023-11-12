@@ -1,4 +1,4 @@
-class StringSchema {
+export default class StringSchema {
   constructor(validators) {
     this.validators = validators;
     this.substrings = [];
@@ -40,5 +40,3 @@ class StringSchema {
     return this;
   }
 }
-
-export default StringSchema;
