@@ -4,9 +4,8 @@ export default class ArraySchema {
   }
 
   isValid(value) {
-    const validators = Object.values(this.options);
-    const result = validators.filter((validator) => validator(value));
-    return result.length === validators.length;
+    const validations = Object.values(this.options).map((validator) => validator(value));
+    return !validations.includes(false);
   }
 
   required() {

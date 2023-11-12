@@ -48,16 +48,16 @@ test('number schema', () => {
 test('array schema', () => {
   const schema = validator.array();
 
-  expect(schema.isValid(null)).toBeTruthy(); // true
+  expect(schema.isValid(null)).toBeTruthy();
 
   schema.required();
 
-  expect(schema.isValid(null)).toBeFalsy(); // false
-  expect(schema.isValid([])).toBeTruthy(); // true
-  expect(schema.isValid(['hexlet'])).toBeTruthy(); // true
+  expect(schema.isValid(null)).toBeFalsy();
+  expect(schema.isValid([])).toBeTruthy();
+  expect(schema.isValid(['hexlet'])).toBeTruthy();
 
   schema.sizeof(2);
 
-  expect(schema.isValid(['hexlet'])).toBeFalsy(); // false
-  expect(schema.isValid(['hexlet', 'code-basics'])).toBeTruthy(); // true
+  expect(schema.isValid(['hexlet'])).toBeFalsy();
+  expect(schema.isValid(['hexlet', 'code-basics'])).toBeTruthy();
 });

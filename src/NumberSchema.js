@@ -4,9 +4,8 @@ export default class NumberSchema {
   }
 
   isValid(value) {
-    const validators = Object.values(this.options);
-    const result = validators.filter((validator) => validator(value));
-    return result.length === validators.length;
+    const validations = Object.values(this.options).map((validator) => validator(value));
+    return !validations.includes(false);
   }
 
   required() {
@@ -15,10 +14,12 @@ export default class NumberSchema {
   }
 
   positive() {
-    this.options.positive ??= (value) => value > 0;
+    this.options.positive ??= (value) => value >= 0;
+    return this;
   }
 
   range(min, max) {
     this.options.range ??= (value) => value >= min && value <= max;
+    return this;
   }
 }
