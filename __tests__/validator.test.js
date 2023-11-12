@@ -44,3 +44,20 @@ test('number schema', () => {
   expect(schema.isValid(-3)).toBeFalsy();
   expect(schema.isValid(5)).toBeTruthy();
 });
+
+test('array schema', () => {
+  const schema = validator.array();
+
+  expect(schema.isValid(null)).toBeTruthy(); // true
+
+  schema.required();
+
+  expect(schema.isValid(null)).toBeFalsy(); // false
+  expect(schema.isValid([])).toBeTruthy(); // true
+  expect(schema.isValid(['hexlet'])).toBeTruthy(); // true
+
+  schema.sizeof(2);
+
+  expect(schema.isValid(['hexlet'])).toBeFalsy(); // false
+  expect(schema.isValid(['hexlet', 'code-basics'])).toBeTruthy(); // true
+});
