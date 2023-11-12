@@ -61,3 +61,17 @@ test('array schema', () => {
   expect(schema.isValid(['hexlet'])).toBeFalsy();
   expect(schema.isValid(['hexlet', 'code-basics'])).toBeTruthy();
 });
+
+test('object schema', () => {
+  const schema = validator.object();
+
+  schema.shape({
+    name: validator.string().required(),
+    age: validator.number().positive(),
+  });
+
+  expect(schema.isValid({ name: 'kolya', age: 100 })).toBeTruthy();
+  expect(schema.isValid({ name: 'maya', age: null })).toBeTruthy();
+  expect(schema.isValid({ name: '', age: null })).toBeFalsy();
+  expect(schema.isValid({ name: 'ada', age: -5 })).toBeFalsy();
+});
