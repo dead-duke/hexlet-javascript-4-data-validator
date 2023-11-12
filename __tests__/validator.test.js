@@ -75,3 +75,19 @@ test('object schema', () => {
   expect(schema.isValid({ name: '', age: null })).toBeFalsy();
   expect(schema.isValid({ name: 'ada', age: -5 })).toBeFalsy();
 });
+
+test('add user validator', () => {
+  const startsWithFn = (value, start) => value.startsWith(start);
+
+  validator.addValidator('string', 'startWith', startsWithFn);
+  const firstSchema = validator.string().test('startWith', 'H');
+  expect(firstSchema.isValid('exlet')).toBeFalsy();
+  expect(firstSchema.isValid('Hexlet')).toBeTruthy();
+
+  const minFn = (value, min) => value >= min;
+  validator.addValidator('number', 'min', minFn);
+
+  const secondSchema = validator.number().test('min', 5);
+  expect(secondSchema.isValid(4)).toBeFalsy();
+  expect(secondSchema.isValid(6)).toBeTruthy();
+});
