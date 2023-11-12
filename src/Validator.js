@@ -20,7 +20,7 @@ export default class Validator {
   }
 
   object() {
-    this.schema = new ObjectSchema(this);
+    this.schema = new ObjectSchema();
     return this.schema;
   }
 }
