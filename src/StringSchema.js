@@ -16,7 +16,9 @@ export default class StringValidator {
   }
 
   required() {
-    this.options.required ??= (value) => typeof value === 'string' && value.length > 0;
+    this.options.required ??= (value) => (
+      value !== null && value !== undefined && value.length > 0
+    );
     return this;
   }
 

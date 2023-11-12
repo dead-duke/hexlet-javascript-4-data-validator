@@ -15,12 +15,14 @@ export default class NumberSchema {
   }
 
   required() {
-    this.options.required ??= (value) => typeof value === 'number' && !Number.isNaN(value);
+    this.options.required ??= (value) => (
+      value !== null && value !== undefined && !Number.isNaN(value)
+    );
     return this;
   }
 
   positive() {
-    this.options.positive ??= (value) => value > 0;
+    this.options.positive ??= (value) => value == null || value > 0;
     return this;
   }
 

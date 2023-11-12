@@ -15,7 +15,9 @@ export default class ArraySchema {
   }
 
   required() {
-    this.options.required ??= (value) => Array.isArray(value);
+    this.options.required ??= (value) => (
+      value !== null && value !== undefined && Array.isArray(value)
+    );
     return this;
   }
 
