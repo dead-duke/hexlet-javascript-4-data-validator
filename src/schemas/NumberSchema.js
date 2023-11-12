@@ -1,4 +1,4 @@
-export default class ArraySchema {
+class NumberSchema {
   constructor(validators) {
     this.validators = validators;
     this.options = {};
@@ -16,13 +16,20 @@ export default class ArraySchema {
 
   required() {
     this.options.required ??= (value) => (
-      value !== null && value !== undefined && Array.isArray(value)
+      value !== null && value !== undefined && !Number.isNaN(value)
     );
     return this;
   }
 
-  sizeof(size) {
-    this.options.sizeof ??= (value) => value.length === size;
+  positive() {
+    this.options.positive ??= (value) => value === null || value > 0;
+    return this;
+  }
+
+  range(min, max) {
+    this.options.range ??= (value) => value >= min && value <= max;
     return this;
   }
 }
+
+export default NumberSchema;

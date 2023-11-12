@@ -1,4 +1,4 @@
-export default class ObjectSchema {
+class ObjectSchema {
   isValid(value) {
     if (!this.fields) {
       return true;
@@ -23,3 +23,5 @@ export default class ObjectSchema {
     return this;
   }
 }
+
+export default ObjectSchema;
