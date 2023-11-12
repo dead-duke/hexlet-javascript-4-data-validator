@@ -10,24 +10,24 @@ class NumberSchema {
   }
 
   test(name, ...args) {
-    this.options[name] ??= (value) => this.validators[name](value, ...args);
+    this.options[name] = (value) => this.validators[name](value, ...args);
     return this;
   }
 
   required() {
-    this.options.required ??= (value) => (
+    this.options.required = (value) => (
       value !== null && value !== undefined && !Number.isNaN(value)
     );
     return this;
   }
 
   positive() {
-    this.options.positive ??= (value) => value === null || value > 0;
+    this.options.positive = (value) => value === null || value > 0;
     return this;
   }
 
   range(min, max) {
-    this.options.range ??= (value) => value >= min && value <= max;
+    this.options.range = (value) => value >= min && value <= max;
     return this;
   }
 }

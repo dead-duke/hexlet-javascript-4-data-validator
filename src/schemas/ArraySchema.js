@@ -10,19 +10,19 @@ class ArraySchema {
   }
 
   test(name, ...args) {
-    this.options[name] ??= (value) => this.validators[name](value, ...args);
+    this.options[name] = (value) => this.validators[name](value, ...args);
     return this;
   }
 
   required() {
-    this.options.required ??= (value) => (
+    this.options.required = (value) => (
       value !== null && value !== undefined && Array.isArray(value)
     );
     return this;
   }
 
   sizeof(size) {
-    this.options.sizeof ??= (value) => value.length === size;
+    this.options.sizeof = (value) => value.length === size;
     return this;
   }
 }

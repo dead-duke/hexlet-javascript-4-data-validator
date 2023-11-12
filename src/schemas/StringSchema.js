@@ -11,24 +11,24 @@ class StringSchema {
   }
 
   test(name, ...args) {
-    this.options[name] ??= (value) => this.validators[name](value, ...args);
+    this.options[name] = (value) => this.validators[name](value, ...args);
     return this;
   }
 
   required() {
-    this.options.required ??= (value) => (
+    this.options.required = (value) => (
       value !== null && value !== undefined && value.length > 0
     );
     return this;
   }
 
   minLength(length) {
-    this.options.minLength ??= (value) => value.length >= length;
+    this.options.minLength = (value) => value.length >= length;
     return this;
   }
 
   contains(string) {
-    this.options.contains ??= (value) => {
+    this.options.contains = (value) => {
       if (this.substrings.length === 0) {
         return true;
       }
