@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grim-vagabond/hexlet-javascript-4-data-validator.git"
+    "url": "git+https://github.com/dead-duke/hexlet-javascript-4-data-validator.git"
   },
   "keywords": [
     "hexlet"
@@ -20,9 +20,9 @@
   "author": "Artem Terenin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/grim-vagabond/hexlet-javascript-4-data-validator/issues"
+    "url": "https://github.com/dead-duke/hexlet-javascript-4-data-validator/issues"
   },
-  "homepage": "https://github.com/grim-vagabond/hexlet-javascript-4-data-validator#readme",
+  "homepage": "https://github.com/dead-duke/hexlet-javascript-4-data-validator#readme",
   "devDependencies": {
     "eslint": "^8.51.0",
     "eslint-config-airbnb": "^19.0.4",
