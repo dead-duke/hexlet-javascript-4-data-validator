@@ -1,25 +1,25 @@
 export default class ObjectSchema {
   isValid(value) {
     if (!this.fields) {
-      return true
+      return true;
     }
 
     if (!value) {
-      return false
+      return false;
     }
 
-    const keys = Object.keys(value)
+    const keys = Object.keys(value);
 
     if (keys.length !== Object.keys(this.fields).length) {
-      return false
+      return false;
     }
 
-    const validations = keys.map(key => this.fields[key].isValid(value[key]))
-    return !validations.includes(false)
+    const validations = keys.map((key) => this.fields[key].isValid(value[key]));
+    return !validations.includes(false);
   }
 
   shape(fields) {
-    this.fields = fields
-    return this
+    this.fields = fields;
+    return this;
   }
 }

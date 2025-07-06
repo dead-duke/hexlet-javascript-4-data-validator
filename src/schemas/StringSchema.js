@@ -1,42 +1,42 @@
 export default class StringSchema {
   constructor(validators) {
-    this.validators = validators
-    this.substrings = []
-    this.options = {}
+    this.validators = validators;
+    this.substrings = [];
+    this.options = {};
   }
 
   isValid(value) {
-    const validations = Object.values(this.options).map(validator => validator(value))
-    return !validations.includes(false)
+    const validations = Object.values(this.options).map((validator) => validator(value));
+    return !validations.includes(false);
   }
 
   test(name, ...args) {
-    this.options[name] = value => this.validators[name](value, ...args)
-    return this
+    this.options[name] = (value) => this.validators[name](value, ...args);
+    return this;
   }
 
   required() {
-    this.options.required = value => (
+    this.options.required = (value) => (
       value !== null && value !== undefined && value.length > 0
-    )
-    return this
+    );
+    return this;
   }
 
   minLength(length) {
-    this.options.minLength = value => value.length >= length
-    return this
+    this.options.minLength = (value) => value.length >= length;
+    return this;
   }
 
   contains(string) {
     this.options.contains = (value) => {
       if (this.substrings.length === 0) {
-        return true
+        return true;
       }
-      const matches = this.substrings.filter(substring => value.includes(substring))
-      return matches.length === this.substrings.length
-    }
+      const matches = this.substrings.filter((substring) => value.includes(substring));
+      return matches.length === this.substrings.length;
+    };
 
-    this.substrings.push(string)
-    return this
+    this.substrings.push(string);
+    return this;
   }
 }
